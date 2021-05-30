@@ -619,7 +619,7 @@ public class EZShop implements EZShopInterface {
                 || user.getUsername().isBlank()) {
             throw new UnauthorizedException("Invalid Role");
         }
-        if (id <= 0) {
+        if (id == null || id <= 0) {
             throw new InvalidProductIdException("Invalid ID");
         }
 
@@ -742,7 +742,7 @@ public class EZShop implements EZShopInterface {
             throw new UnauthorizedException("Invalid Role");
         }
 
-        if (barCode.isEmpty() || barCode.length() > 14 || barCode.length() < 12 || barCode.isBlank()) {
+        if (barCode.isEmpty() || barCode == null || barCode.length() > 14 || barCode.length() < 12 || barCode.isBlank()) {
             throw new InvalidProductCodeException("Product code error");
         }
 
@@ -945,7 +945,7 @@ public class EZShop implements EZShopInterface {
                 || user.getUsername().isBlank()) {
             throw new UnauthorizedException("Invalid Role");
         }
-        if (productId <= 0) {
+        if (productId==null || productId <= 0) {
             throw new InvalidProductIdException("Invalid ID");
         }
 
@@ -1079,7 +1079,7 @@ public class EZShop implements EZShopInterface {
                 || user.getUsername().isBlank()) {
             throw new UnauthorizedException("Invalid Role");
         }
-        if (productId <= 0) {
+        if (productId==null || productId <= 0) {
             throw new InvalidProductIdException("Invalid ID");
         }
 
@@ -1087,7 +1087,7 @@ public class EZShop implements EZShopInterface {
             throw new InvalidLocationException("Location invalid");
         }
 
-        if (!(newPos.substring(3, 4).equals(temp) || newPos.substring(7, 8).equals(temp))) {
+        if (newPos.split("-").length != 2) {
             throw new InvalidLocationException("Location invalid");
         }
 
